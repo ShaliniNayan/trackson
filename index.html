@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trackson Sportswear</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <!-- TOP SCROLLING ANNOUNCEMENT BAR -->
+    <div class="announcement-bar">
+        <div class="announcement-track">
+            <div class="announcement-item">
+                <img src="img/speaker.jpg" alt="Announcement Speaker" class="announcement-speaker-img">
+                <span>TO BOOK YOUR ORDER, CONTACT US DIRECTLY ON WHATSAPP! 💬 PREMIUM SPORTSWEAR & FAST DELIVERY 🔥</span>
+            </div>
+            <div class="announcement-item">
+                <img src="img/speaker.jpg" alt="Announcement Speaker" class="announcement-speaker-img">
+                <span>TO BOOK YOUR ORDER, CONTACT US DIRECTLY ON WHATSAPP! 💬 PREMIUM SPORTSWEAR & FAST DELIVERY 🔥</span>
+            </div>
+            <div class="announcement-item">
+                <img src="img/speaker.jpg" alt="Announcement Speaker" class="announcement-speaker-img">
+                <span>TO BOOK YOUR ORDER, CONTACT US DIRECTLY ON WHATSAPP! 💬 PREMIUM SPORTSWEAR & FAST DELIVERY 🔥</span>
+            </div>
+            <div class="announcement-item">
+                <img src="img/speaker.jpg" alt="Announcement Speaker" class="announcement-speaker-img">
+                <span>TO BOOK YOUR ORDER, CONTACT US DIRECTLY ON WHATSAPP! 💬 PREMIUM SPORTSWEAR & FAST DELIVERY 🔥</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <img src="img/Logo.jpeg" alt="Trackson Logo" class="logo">
+        <h1>TRACKSON</h1>
+    </header>
+
+    <div class="hero">
+        <span class="hero-badge">Gold Standard Edition</span>
+        <h2>Unleash Your Athletic Potential</h2>
+        <p>Premium, high-performance sportswear engineered for the modern athlete.</p>
+        <div class="whatsapp-order-notice">
+            <i class="fa-brands fa-whatsapp"></i> To book your order, contact us directly on <span>WhatsApp</span>
+        </div>
+    </div>
+
+    <div class="products">
+        <div class="card">
+            <div>
+                <h3>AeroDry Running Tee</h3>
+                <p>Ultra-breathable, moisture-wicking fabric designed to keep you cool and dry during high-intensity
+                    training.</p>
+            </div>
+            <div class="card-footer">
+                <span class="price">₹445.00</span>
+                <button class="btn-whatsapp-order" data-product="AeroDry Running Tee" data-price="₹445.00">
+                    <i class="fa-brands fa-whatsapp"></i> Book on WhatsApp
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div>
+                <h3>Apex Training Shorts</h3>
+                <p>Lightweight 4-way stretch material with ergonomic design and secure zipper pockets for your gear.</p>
+            </div>
+            <div class="card-footer">
+                <span class="price">₹345.00</span>
+                <button class="btn-whatsapp-order" data-product="Apex Training Shorts" data-price="₹345.00">
+                    <i class="fa-brands fa-whatsapp"></i> Book on WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW ARRIVAL MODAL POP-UP -->
+    <div class="modal-overlay" id="newArrivalModal">
+        <div class="modal-card">
+            <button class="modal-close" id="closeModalBtn">&times;</button>
+            <span class="modal-badge">🔥 NEW ARRIVAL</span>
+            <h3>Gold Elite Track Jacket</h3>
+            <p>Experience peak performance with our all-new windproof, thermal-regulated gold edition jacket. Exclusive 15% discount for a limited time!</p>
+            <button class="modal-btn btn-whatsapp-order" id="modalShopBtn" data-product="Gold Elite Track Jacket" data-price="₹1,299.00">
+                <i class="fa-brands fa-whatsapp"></i> Book on WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <!-- WHATSAPP FLOATING WIDGET -->
+    <div class="whatsapp-widget">
+        <div class="whatsapp-chat-box" id="whatsappChatBox">
+            <div class="whatsapp-chat-header">
+                <div class="whatsapp-avatar">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <div class="whatsapp-chat-title">
+                    <h4>Trackson Support</h4>
+                    <span><i class="fa-solid fa-circle" style="font-size: 8px;"></i> Online Now</span>
+                </div>
+                <button class="whatsapp-chat-close" id="closeWhatsappChatBtn" title="Minimize Chat">&times;</button>
+            </div>
+            <div class="whatsapp-chat-body">
+                👋 Hello! How can I help you today? Ask us any questions or click below to book your order directly on WhatsApp!
+            </div>
+            <a href="https://wa.me/?text=Hi%20Trackson%20Team!%20How%20can%20I%20book%20an%20order%20or%20inquire%20about%20your%20products?" target="_blank" class="whatsapp-send-btn" id="whatsappMainSendBtn">
+                <i class="fa-brands fa-whatsapp" style="font-size: 1.2em;"></i> Chat & Book on WhatsApp
+            </a>
+        </div>
+        <button class="whatsapp-float-btn" id="whatsappFloatBtn" title="Contact on WhatsApp to Book Order">
+            <i class="fa-brands fa-whatsapp"></i>
+        </button>
+    </div>
+</body>
+
+</html>
