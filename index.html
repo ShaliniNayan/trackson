@@ -11,7 +11,7 @@
         rel="stylesheet">
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3.0">
     <script src="script.js" defer></script>
 </head>
 
@@ -40,7 +40,14 @@
 
     <header>
         <img src="img/Logo.jpeg" alt="Trackson Logo" class="logo">
-        <h1>TRACKSON</h1>
+        <div class="header-brand-wrap">
+            <h1>TRACKSON</h1>
+            <div class="company-subname">
+                <i class="fa-solid fa-crown"></i>
+                <span class="subname-text">ESSKAY SPORTS WEAR</span>
+                <i class="fa-solid fa-crown"></i>
+            </div>
+        </div>
     </header>
 
     <div class="hero">
@@ -54,27 +61,105 @@
 
     <div class="products">
         <div class="card">
+            <div class="card-img-container">
+                <img src="img/running_tee.jpg" alt="AeroDry Running Tee" class="card-img">
+                <span class="color-badge"><i class="fa-solid fa-palette"></i> Color: <strong class="color-name">Black</strong></span>
+            </div>
             <div>
                 <h3>AeroDry Running Tee</h3>
                 <p>Ultra-breathable, moisture-wicking fabric designed to keep you cool and dry during high-intensity
                     training.</p>
+                <div class="color-selection">
+                    <span class="color-title">Select Color:</span>
+                    <div class="swatches">
+                        <button type="button" class="swatch active" data-color="Stealth Black" data-img="img/running_tee.jpg" data-filter="none" style="--swatch-color: #1a1a1a; background: #1a1a1a !important;" title="Stealth Black"></button>
+                        <button type="button" class="swatch" data-color="Cyan Teal" data-img="img/running_tee_cyan.jpg" data-filter="none" style="--swatch-color: #00bcd4; background: #00bcd4 !important;" title="Cyan Teal"></button>
+                        <button type="button" class="swatch" data-color="Electric Blue" data-img="img/running_tee_cyan.jpg" data-filter="hue-rotate(40deg) saturate(2.5)" style="--swatch-color: #29b6f6; background: #29b6f6 !important;" title="Electric Blue"></button>
+                        <button type="button" class="swatch" data-color="Crimson Red" data-img="img/running_tee_cyan.jpg" data-filter="hue-rotate(150deg) saturate(2.5)" style="--swatch-color: #d32f2f; background: #d32f2f !important;" title="Crimson Red"></button>
+                    </div>
+                </div>
             </div>
             <div class="card-footer">
                 <span class="price">₹445.00</span>
-                <button class="btn-whatsapp-order" data-product="AeroDry Running Tee" data-price="₹445.00">
+                <button class="btn-whatsapp-order" data-product="AeroDry Running Tee" data-price="₹445.00" data-color="Stealth Black">
                     <i class="fa-brands fa-whatsapp"></i> Book on WhatsApp
                 </button>
             </div>
         </div>
 
         <div class="card">
+            <div class="card-img-container">
+                <img src="img/running_tee_cyan.jpg" alt="AeroDry Running Tee (Cyan)" class="card-img">
+                <span class="color-badge"><i class="fa-solid fa-palette"></i> Color: <strong class="color-name">Cyan Teal</strong></span>
+            </div>
+            <div>
+                <h3>AeroDry Running Tee (Cyan)</h3>
+                <p>Vibrant cyan edition with high-tech breathability and ergonomic stretch fit for peak activity.</p>
+                <div class="color-selection">
+                    <span class="color-title">Select Color:</span>
+                    <div class="swatches">
+                        <button type="button" class="swatch active" data-color="Cyan Teal" data-img="img/running_tee_cyan.jpg" data-filter="none" style="--swatch-color: #00bcd4; background: #00bcd4 !important;" title="Cyan Teal"></button>
+                        <button type="button" class="swatch" data-color="Stealth Black" data-img="img/running_tee.jpg" data-filter="none" style="--swatch-color: #1a1a1a; background: #1a1a1a !important;" title="Stealth Black"></button>
+                        <button type="button" class="swatch" data-color="Neon Purple" data-img="img/running_tee_cyan.jpg" data-filter="hue-rotate(100deg) saturate(2.5)" style="--swatch-color: #ab47bc; background: #ab47bc !important;" title="Neon Purple"></button>
+                        <button type="button" class="swatch" data-color="Neon Lime" data-img="img/running_tee_cyan.jpg" data-filter="hue-rotate(240deg) saturate(2.5)" style="--swatch-color: #76ff03; background: #76ff03 !important;" title="Neon Lime"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="price">₹499.00</span>
+                <button class="btn-whatsapp-order" data-product="AeroDry Running Tee (Cyan)" data-price="₹499.00" data-color="Cyan Teal">
+                    <i class="fa-brands fa-whatsapp"></i> Book on WhatsApp
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-container">
+                <img src="img/training_shorts.jpg" alt="Apex Training Shorts" class="card-img">
+                <span class="color-badge"><i class="fa-solid fa-palette"></i> Color: <strong class="color-name">Stealth Black</strong></span>
+            </div>
             <div>
                 <h3>Apex Training Shorts</h3>
                 <p>Lightweight 4-way stretch material with ergonomic design and secure zipper pockets for your gear.</p>
+                <div class="color-selection">
+                    <span class="color-title">Select Color:</span>
+                    <div class="swatches">
+                        <button type="button" class="swatch active" data-color="Stealth Black" data-img="img/training_shorts.jpg" data-filter="none" style="--swatch-color: #1a1a1a; background: #1a1a1a !important;" title="Stealth Black"></button>
+                        <button type="button" class="swatch" data-color="Midnight Navy" data-img="img/training_shorts.jpg" data-filter="sepia(0.8) hue-rotate(180deg) saturate(3.5)" style="--swatch-color: #1a237e; background: #1a237e !important;" title="Midnight Navy"></button>
+                        <button type="button" class="swatch" data-color="Olive Green" data-img="img/training_shorts.jpg" data-filter="sepia(0.8) hue-rotate(80deg) saturate(3)" style="--swatch-color: #33691e; background: #33691e !important;" title="Olive Green"></button>
+                        <button type="button" class="swatch" data-color="Crimson Red" data-img="img/training_shorts.jpg" data-filter="sepia(0.8) hue-rotate(310deg) saturate(4)" style="--swatch-color: #b71c1c; background: #b71c1c !important;" title="Crimson Red"></button>
+                    </div>
+                </div>
             </div>
             <div class="card-footer">
                 <span class="price">₹345.00</span>
-                <button class="btn-whatsapp-order" data-product="Apex Training Shorts" data-price="₹345.00">
+                <button class="btn-whatsapp-order" data-product="Apex Training Shorts" data-price="₹345.00" data-color="Stealth Black">
+                    <i class="fa-brands fa-whatsapp"></i> Book on WhatsApp
+                </button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-img-container">
+                <img src="img/track_jacket.jpg" alt="Gold Elite Track Jacket" class="card-img">
+                <span class="color-badge"><i class="fa-solid fa-palette"></i> Color: <strong class="color-name">Gold Edition</strong></span>
+            </div>
+            <div>
+                <h3>Gold Elite Track Jacket</h3>
+                <p>Windproof, thermal-regulated gold edition performance jacket engineered for all weather conditions.</p>
+                <div class="color-selection">
+                    <span class="color-title">Select Color:</span>
+                    <div class="swatches">
+                        <button type="button" class="swatch active" data-color="Gold Edition" data-img="img/track_jacket.jpg" data-filter="none" style="--swatch-color: #D4AF37; background: #D4AF37 !important;" title="Gold Edition"></button>
+                        <button type="button" class="swatch" data-color="Onyx Black" data-img="img/track_jacket.jpg" data-filter="brightness(0.6) contrast(1.4) grayscale(0.7)" style="--swatch-color: #111111; background: #111111 !important;" title="Onyx Black"></button>
+                        <button type="button" class="swatch" data-color="Royal Red" data-img="img/track_jacket.jpg" data-filter="hue-rotate(320deg) saturate(2.5)" style="--swatch-color: #d32f2f; background: #d32f2f !important;" title="Royal Red"></button>
+                        <button type="button" class="swatch" data-color="Cobalt Blue" data-img="img/track_jacket.jpg" data-filter="hue-rotate(170deg) saturate(2.5)" style="--swatch-color: #0d47a1; background: #0d47a1 !important;" title="Cobalt Blue"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span class="price">₹1,299.00</span>
+                <button class="btn-whatsapp-order" data-product="Gold Elite Track Jacket" data-price="₹1,299.00" data-color="Gold Edition">
                     <i class="fa-brands fa-whatsapp"></i> Book on WhatsApp
                 </button>
             </div>
@@ -86,9 +171,22 @@
         <div class="modal-card">
             <button class="modal-close" id="closeModalBtn">&times;</button>
             <span class="modal-badge">🔥 NEW ARRIVAL</span>
+            <div class="modal-img-container">
+                <img src="img/track_jacket.jpg" alt="Gold Elite Track Jacket" class="modal-img">
+                <span class="color-badge"><i class="fa-solid fa-palette"></i> Color: <strong class="color-name">Gold Edition</strong></span>
+            </div>
             <h3>Gold Elite Track Jacket</h3>
             <p>Experience peak performance with our all-new windproof, thermal-regulated gold edition jacket. Exclusive 15% discount for a limited time!</p>
-            <button class="modal-btn btn-whatsapp-order" id="modalShopBtn" data-product="Gold Elite Track Jacket" data-price="₹1,299.00">
+            <div class="color-selection modal-color-selection">
+                <span class="color-title">Select Color:</span>
+                <div class="swatches">
+                    <button type="button" class="swatch active" data-color="Gold Edition" data-img="img/track_jacket.jpg" data-filter="none" style="--swatch-color: #D4AF37; background: #D4AF37 !important;" title="Gold Edition"></button>
+                    <button type="button" class="swatch" data-color="Onyx Black" data-img="img/track_jacket.jpg" data-filter="brightness(0.6) contrast(1.4) grayscale(0.7)" style="--swatch-color: #111111; background: #111111 !important;" title="Onyx Black"></button>
+                    <button type="button" class="swatch" data-color="Royal Red" data-img="img/track_jacket.jpg" data-filter="hue-rotate(320deg) saturate(2.5)" style="--swatch-color: #d32f2f; background: #d32f2f !important;" title="Royal Red"></button>
+                    <button type="button" class="swatch" data-color="Cobalt Blue" data-img="img/track_jacket.jpg" data-filter="hue-rotate(170deg) saturate(2.5)" style="--swatch-color: #0d47a1; background: #0d47a1 !important;" title="Cobalt Blue"></button>
+                </div>
+            </div>
+            <button class="modal-btn btn-whatsapp-order" id="modalShopBtn" data-product="Gold Elite Track Jacket" data-price="₹1,299.00" data-color="Gold Edition">
                 <i class="fa-brands fa-whatsapp"></i> Book on WhatsApp
             </button>
         </div>
@@ -108,16 +206,31 @@
                 <button class="whatsapp-chat-close" id="closeWhatsappChatBtn" title="Minimize Chat">&times;</button>
             </div>
             <div class="whatsapp-chat-body">
-                👋 Hello! How can I help you today? Ask us any questions or click below to book your order directly on WhatsApp!
+                👋 Hello! How can we help you today? Type your message below to send it directly to us:
             </div>
-            <a href="https://wa.me/?text=Hi%20Trackson%20Team!%20How%20can%20I%20book%20an%20order%20or%20inquire%20about%20your%20products?" target="_blank" class="whatsapp-send-btn" id="whatsappMainSendBtn">
-                <i class="fa-brands fa-whatsapp" style="font-size: 1.2em;"></i> Chat & Book on WhatsApp
-            </a>
+            <div class="whatsapp-chat-input-row">
+                <input type="text" id="whatsappCustomMessageInput" placeholder="Type your message..." class="whatsapp-input">
+                <button class="whatsapp-send-icon-btn" id="sendCustomWhatsappMsgBtn" title="Send Message">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
         </div>
         <button class="whatsapp-float-btn" id="whatsappFloatBtn" title="Contact on WhatsApp to Book Order">
             <i class="fa-brands fa-whatsapp"></i>
         </button>
     </div>
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h2>TRACKSON</h2>
+                <div class="footer-company-tag">
+                    <i class="fa-solid fa-crown"></i> ESSKAY SPORTS WEAR
+                </div>
+            </div>
+            <p class="footer-copy">&copy; 2026 TRACKSON (ESSKAY SPORTS WEAR). All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 
 </html>
