@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 0. WhatsApp Configuration & Cross-Device Reliable Sending
+    // 1. WhatsApp Configuration & Cross-Device Reliable Sending
     const whatsappPhoneNumber = "919899565707";
 
     const sendWhatsAppMessage = (messageText) => {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // 1. New Arrival Modal Pop-up Logic
+    // 2. New Arrival Modal Pop-up Logic
     const newArrivalModal = document.getElementById('newArrivalModal');
     const closeModalBtn = document.getElementById('closeModalBtn');
 
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Interactive Color Selection & Dynamic Image Switching
+    // 3. Interactive Color Selection & Dynamic Image Switching
     const colorSwatches = document.querySelectorAll('.swatch');
     colorSwatches.forEach(swatch => {
         swatch.addEventListener('click', () => {
@@ -80,121 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
-    // 3. Multi-Tiered Product Filtering (Gender, Sport, Type & Search)
-    const productCards = document.querySelectorAll('.card');
-    const visibleCountSpan = document.getElementById('visibleCount');
-    const noResultsMsg = document.getElementById('noResultsMsg');
-    const searchInput = document.getElementById('searchInput');
-    const clearSearchBtn = document.getElementById('clearSearchBtn');
-    const resetFiltersBtn = document.getElementById('resetFiltersBtn');
-
-    let activeGender = 'all';
-    let activeSport = 'all';
-    let activeType = 'all';
-    let searchQuery = '';
-
-    const filterProducts = () => {
-        let visibleCount = 0;
-
-        productCards.forEach(card => {
-            const gender = card.getAttribute('data-gender') || '';
-            const sport = card.getAttribute('data-sport') || '';
-            const type = card.getAttribute('data-type') || '';
-            const textContent = card.textContent.toLowerCase();
-
-            const matchesGender = (activeGender === 'all' || gender === activeGender);
-            const matchesSport = (activeSport === 'all' || sport === activeSport);
-            const matchesType = (activeType === 'all' || type === activeType);
-            const matchesSearch = (!searchQuery || textContent.includes(searchQuery));
-
-            if (matchesGender && matchesSport && matchesType && matchesSearch) {
-                card.style.display = 'flex';
-                visibleCount++;
-            } else {
-                card.style.display = 'none';
-            }
-        });
-
-        if (visibleCountSpan) {
-            visibleCountSpan.textContent = visibleCount;
-        }
-
-        if (noResultsMsg) {
-            noResultsMsg.style.display = (visibleCount === 0) ? 'block' : 'none';
-        }
-    };
-
-    // Gender Filter Buttons
-    const genderBtns = document.querySelectorAll('#genderFilters .filter-btn');
-    genderBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            genderBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            activeGender = btn.getAttribute('data-gender') || 'all';
-            filterProducts();
-        });
-    });
-
-    // Sport Chips
-    const sportChips = document.querySelectorAll('#sportFilters .chip-btn');
-    sportChips.forEach(chip => {
-        chip.addEventListener('click', () => {
-            sportChips.forEach(c => c.classList.remove('active'));
-            chip.classList.add('active');
-            activeSport = chip.getAttribute('data-sport') || 'all';
-            filterProducts();
-        });
-    });
-
-    // Apparel Type Chips
-    const typeChips = document.querySelectorAll('#typeFilters .chip-btn');
-    typeChips.forEach(chip => {
-        chip.addEventListener('click', () => {
-            typeChips.forEach(c => c.classList.remove('active'));
-            chip.classList.add('active');
-            activeType = chip.getAttribute('data-type') || 'all';
-            filterProducts();
-        });
-    });
-
-    // Search Box Listener
-    if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-            searchQuery = e.target.value.trim().toLowerCase();
-            if (clearSearchBtn) {
-                clearSearchBtn.style.display = searchQuery ? 'block' : 'none';
-            }
-            filterProducts();
-        });
-    }
-
-    if (clearSearchBtn) {
-        clearSearchBtn.addEventListener('click', () => {
-            if (searchInput) searchInput.value = '';
-            searchQuery = '';
-            clearSearchBtn.style.display = 'none';
-            filterProducts();
-        });
-    }
-
-    if (resetFiltersBtn) {
-        resetFiltersBtn.addEventListener('click', () => {
-            activeGender = 'all';
-            activeSport = 'all';
-            activeType = 'all';
-            searchQuery = '';
-
-            if (searchInput) searchInput.value = '';
-            if (clearSearchBtn) clearSearchBtn.style.display = 'none';
-
-            genderBtns.forEach(b => b.classList.toggle('active', b.getAttribute('data-gender') === 'all'));
-            sportChips.forEach(c => c.classList.toggle('active', c.getAttribute('data-sport') === 'all'));
-            typeChips.forEach(c => c.classList.toggle('active', c.getAttribute('data-type') === 'all'));
-
-            filterProducts();
-        });
-    }
 
     // 4. WhatsApp Floating Widget & Auto-open Chat Box
     const whatsappFloatBtn = document.getElementById('whatsappFloatBtn');
