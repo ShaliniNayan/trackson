@@ -81,7 +81,122 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3. WhatsApp Floating Widget & Auto-open Chat Box
+    // 3. Multi-Tiered Product Filtering (Gender, Sport, Type & Search)
+    const productCards = document.querySelectorAll('.card');
+    const visibleCountSpan = document.getElementById('visibleCount');
+    const noResultsMsg = document.getElementById('noResultsMsg');
+    const searchInput = document.getElementById('searchInput');
+    const clearSearchBtn = document.getElementById('clearSearchBtn');
+    const resetFiltersBtn = document.getElementById('resetFiltersBtn');
+
+    let activeGender = 'all';
+    let activeSport = 'all';
+    let activeType = 'all';
+    let searchQuery = '';
+
+    const filterProducts = () => {
+        let visibleCount = 0;
+
+        productCards.forEach(card => {
+            const gender = card.getAttribute('data-gender') || '';
+            const sport = card.getAttribute('data-sport') || '';
+            const type = card.getAttribute('data-type') || '';
+            const textContent = card.textContent.toLowerCase();
+
+            const matchesGender = (activeGender === 'all' || gender === activeGender);
+            const matchesSport = (activeSport === 'all' || sport === activeSport);
+            const matchesType = (activeType === 'all' || type === activeType);
+            const matchesSearch = (!searchQuery || textContent.includes(searchQuery));
+
+            if (matchesGender && matchesSport && matchesType && matchesSearch) {
+                card.style.display = 'flex';
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        if (visibleCountSpan) {
+            visibleCountSpan.textContent = visibleCount;
+        }
+
+        if (noResultsMsg) {
+            noResultsMsg.style.display = (visibleCount === 0) ? 'block' : 'none';
+        }
+    };
+
+    // Gender Filter Buttons
+    const genderBtns = document.querySelectorAll('#genderFilters .filter-btn');
+    genderBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            genderBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeGender = btn.getAttribute('data-gender') || 'all';
+            filterProducts();
+        });
+    });
+
+    // Sport Chips
+    const sportChips = document.querySelectorAll('#sportFilters .chip-btn');
+    sportChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            sportChips.forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            activeSport = chip.getAttribute('data-sport') || 'all';
+            filterProducts();
+        });
+    });
+
+    // Apparel Type Chips
+    const typeChips = document.querySelectorAll('#typeFilters .chip-btn');
+    typeChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            typeChips.forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            activeType = chip.getAttribute('data-type') || 'all';
+            filterProducts();
+        });
+    });
+
+    // Search Box Listener
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.trim().toLowerCase();
+            if (clearSearchBtn) {
+                clearSearchBtn.style.display = searchQuery ? 'block' : 'none';
+            }
+            filterProducts();
+        });
+    }
+
+    if (clearSearchBtn) {
+        clearSearchBtn.addEventListener('click', () => {
+            if (searchInput) searchInput.value = '';
+            searchQuery = '';
+            clearSearchBtn.style.display = 'none';
+            filterProducts();
+        });
+    }
+
+    if (resetFiltersBtn) {
+        resetFiltersBtn.addEventListener('click', () => {
+            activeGender = 'all';
+            activeSport = 'all';
+            activeType = 'all';
+            searchQuery = '';
+
+            if (searchInput) searchInput.value = '';
+            if (clearSearchBtn) clearSearchBtn.style.display = 'none';
+
+            genderBtns.forEach(b => b.classList.toggle('active', b.getAttribute('data-gender') === 'all'));
+            sportChips.forEach(c => c.classList.toggle('active', c.getAttribute('data-sport') === 'all'));
+            typeChips.forEach(c => c.classList.toggle('active', c.getAttribute('data-type') === 'all'));
+
+            filterProducts();
+        });
+    }
+
+    // 4. WhatsApp Floating Widget & Auto-open Chat Box
     const whatsappFloatBtn = document.getElementById('whatsappFloatBtn');
     const whatsappChatBox = document.getElementById('whatsappChatBox');
     const closeWhatsappChatBtn = document.getElementById('closeWhatsappChatBtn');
@@ -114,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 4. Custom Typed WhatsApp Chat Box Message
+    // Custom Typed WhatsApp Chat Box Message
     const whatsappCustomMessageInput = document.getElementById('whatsappCustomMessageInput');
     const sendCustomWhatsappMsgBtn = document.getElementById('sendCustomWhatsappMsgBtn');
 
@@ -145,9 +260,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const productName = button.getAttribute('data-product') || 'Sportswear Item';
             const price = button.getAttribute('data-price') || '';
             const color = button.getAttribute('data-color') || '';
+            const category = button.getAttribute('data-category') || '';
 
             const colorDetail = color ? ` (Color: ${color})` : '';
-            const message = `Hi Trackson Team! 👋 I would like to book an order for *${productName}*${colorDetail} (${price}). Please let me know availability and payment details!`;
+            const categoryDetail = category ? ` [${category}]` : '';
+            const message = `Hi Trackson Team! 👋 I would like to book an order for *${productName}*${colorDetail}${categoryDetail} (${price}). Please let me know availability and payment details!`;
 
             sendWhatsAppMessage(message);
 
